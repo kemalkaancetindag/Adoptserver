@@ -16,4 +16,4 @@ app.post("/addpet",fbAuth,addPet)
 app.put("/updatepet/:id",fbAuth,updatePet)
 app.delete("/deletepet/:id",fbAuth,deletePet)
 
-exports.api = functions.region("europe-west").https.onRequest(app);
+exports.api = functions.region("europe-west3").https.onRequest(app);
