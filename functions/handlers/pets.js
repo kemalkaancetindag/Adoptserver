@@ -62,3 +62,44 @@ exports.deletePet = (req, res) => {
       return res.status(500).json({ error: err.code });
     });
 };
+
+exports.getDogs = (req,res) => {
+  db.collection("pets")
+  .where("kind","==","dog")
+  .get()
+  .then((data) => {
+    let dogs = [];
+    data.forEach((doc) => {
+      dogs.push({
+        petId: doc.id,
+        age: doc.data().age,
+        weight: doc.data().weight,
+        breed: doc.data().breed,
+        sex: doc.data().sex,
+      });
+    });
+    return res.json(dogs);
+  })
+  .catch((err) => console.log(err));
+
+}
+
+exports.getCats = (req,res) => {
+  db.collection("pets")
+  .where("kind","==","cat")
+  .get()
+  .then((data) => {
+    let cats = [];
+    data.forEach((doc) => {
+      dogs.push({
+        petId: doc.id,
+        age: doc.data().age,
+        weight: doc.data().weight,
+        breed: doc.data().breed,
+        sex: doc.data().sex,
+      });
+    });
+    return res.json(cats);
+  })
+  .catch((err) => console.log(err));
+}
