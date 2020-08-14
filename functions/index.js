@@ -11,6 +11,7 @@ const {
   deletePet,
   getCats,
   getDogs,
+  uploadImage,
 } = require("./handlers/pets");
 
 
@@ -23,6 +24,7 @@ app.post("/login", login);
 app.post("/addpet",  addPet);
 app.put("/updatepet/:id",  updatePet);
 app.delete("/deletepet/:id",  deletePet);
+app.post("/:petId/uploadimg",uploadImage)
 
 //get requsets
 
